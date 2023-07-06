@@ -8,15 +8,18 @@ Utilizzare la funzione sommaNumeri per stampare il risultato.
 let N = parseInt(prompt("Quanti numeri vuoi sommare?"));
 let numbers = creaArray(N);
 
-let result = sommaNumeri(N, numbers);
+let sum = sommaNumeri(N, numbers);
 
-console.log(result);
+let arithmeticAverage = mediaAritmetica(sum, N);
+
+console.log(sum);
+console.log(arithmeticAverage);
 
 function creaArray(N) {
   let numbers = [];
 
   for (let i = 0; i < N; i++) {
-    let number = parseInt(prompt("inserisci il" + (i + 1) + "° numero"));
+    let number = parseInt(prompt("inserisci il " + (i + 1) + "° numero"));
 
     numbers.push(number);
   }
@@ -25,11 +28,22 @@ function creaArray(N) {
 }
 
 function sommaNumeri(N, numbers) {
-  let result = 0;
+  let sum = 0;
 
   for (let i = 0; i < N; i++) {
-    result = result + numbers[i];
+    sum = sum + numbers[i];
   }
 
-  return result;
+  return sum;
+}
+
+/*Crea una funzione chiamata mediaAritmetica che prende in input un array di N numeri
+ e restituisca la media aritmetica dei numeri contenuti nell'array.
+Utilizzare la funzione sommaNumeri precedentemente creata per calcolare la media dei numeri che vanno chiesti all'utente 
+attraverso dei prompt.*/
+
+function mediaAritmetica(sum, N) {
+  let arithmeticAverage = sommaNumeri(N, numbers) / N;
+
+  return arithmeticAverage;
 }
